@@ -1,0 +1,109 @@
+// createproduct.component.scss
+.home-icon {
+  position: fixed;  // this will keep it in place
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  padding: 10px;
+  background: white;  // optional: adds background to the icon
+  border-radius: 50%;  // optional: makes it circular
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  // optional: adds subtle shadow
+  z-index: 1000;  // ensures it stays on top
+  
+  i {
+      font-size: 24px;
+      color: black;
+      transition: color 0.3s ease;
+  }
+
+  &:hover i {
+      color: #3498db;
+  }
+}
+.create-product-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      color: #2c3e50;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 600;
+      position: relative;
+      
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #3498db;
+        border-radius: 3px;
+      }
+    }
+  
+    .form-group {
+      margin-bottom: 25px;
+  
+      label {
+        color: #34495e;
+        font-weight: 500;
+        margin-bottom: 8px;
+        display: block;
+      }
+  
+      input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        outline: none;
+  
+        &:focus {
+          border-color: #3498db;
+          box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+  
+        &.ng-invalid.ng-touched {
+          border-color: #e74c3c;
+        }
+      }
+  
+      .error-message {
+        color: #e74c3c;
+        font-size: 0.85rem;
+        margin-top: 5px;
+        display: block;
+      }
+    }
+  
+    .submit-button {
+      width: 100%;
+      padding: 14px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+  
+      &:hover {
+        background: #2980b9;
+        transform: translateY(-1px);
+      }
+  
+      &:disabled {
+        background: #bdc3c7;
+        cursor: not-allowed;
+        transform: none;
+      }
+    }
+  }

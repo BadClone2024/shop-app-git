@@ -1,0 +1,7 @@
+<div>
+  <app-header [role]="userInfo.role"></app-header>
+  <h1>Home</h1>
+  <div class="container">
+    <app-product-card *ngFor="let product of filter" [product]="product" [role]="userInfo.role"></app-product-card>
+  </div>
+</div>

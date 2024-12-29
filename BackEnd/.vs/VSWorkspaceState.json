@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ShopApi",
+    "\\ShopApi\\Controllers",
+    "\\ShopApi\\Data",
+    "\\ShopApi\\DTOs",
+    "\\ShopApi\\Migrations",
+    "\\ShopApi\\Models"
+  ],
+  "SelectedNode": "\\ShopApi\\Migrations\\20241224142555_InitialCreate.cs",
+  "PreviewInSolutionExplorer": false
+}

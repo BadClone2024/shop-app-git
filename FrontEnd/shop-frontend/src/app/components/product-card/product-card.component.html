@@ -1,0 +1,26 @@
+<div *ngIf="role !== 'Admin'" class="card">
+  <img [src]="product.imgUrl" alt="{{ product.name }}" />
+  <h2>{{ product.name }}</h2>
+  <p>Price: {{ product.price }}</p>
+  <button (click)="addToCart(product)">Add to Cart</button>
+</div>
+
+<div *ngIf="role === 'Admin'" class="card">
+  <div *ngIf="!isEditing">
+    <img [src]="product.imgUrl" alt="{{ product.name }}" />
+    <h1>Product name: {{product.name}}</h1>
+    <h1>In stock: {{product.inStock}}</h1>
+    <h1>Product image: {{product.imgUrl}}</h1>
+    <button (click)="toggleEdit()">Edit</button>
+    <button (click)="deleteProduct()">Delete</button>
+  </div>
+
+  <div *ngIf="isEditing" class="editing-form">
+    <img [src]="product.imgUrl" alt="{{ product.name }}" />
+    <input type="text" [(ngModel)]="product.name" [disabled]="!isEditing">
+    <input type="number" [(ngModel)]="product.inStock" [disabled]="!isEditing">
+    <input type="text" [(ngModel)]="product.imgUrl" [disabled]="!isEditing">
+    <button (click)="toggleEdit()">Cancel</button>
+    <button (click)="updateProduct()">Save</button>
+  </div>
+</div>

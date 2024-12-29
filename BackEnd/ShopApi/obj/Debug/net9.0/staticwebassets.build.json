@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "cIL0qVRUy0rl86Jgnmtm502MG+1J8BtIofXgQ63fZYU=",
+  "Source": "ShopApi",
+  "BasePath": "_content/ShopApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

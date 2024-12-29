@@ -1,0 +1,8 @@
+/* home.component.scss */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 16px; /* Space between the cards */
+  }
+  

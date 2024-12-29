@@ -1,0 +1,47 @@
+<div *ngIf="currentUrl === '/createproduct'" class="home-icon" routerLink="/home" role="button"
+        aria-label="Go to home">
+        <i class="fas fa-home"></i>
+    </div>
+
+<div class="create-product-container">
+    
+    <h2>Create New Product</h2>
+    <form (ngSubmit)="createProduct()" #productForm="ngForm">
+        <div class="form-group">
+            <label for="name">Product Name</label>
+            <input type="text" id="name" name="name" [(ngModel)]="product.name" #name="ngModel" required>
+            <span class="error-message" *ngIf="name.invalid && name.touched">
+                Product name is required
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price ($)</label>
+            <input type="number" id="price" name="price" [(ngModel)]="product.price" #price="ngModel" required min="1">
+            <span class="error-message" *ngIf="price.invalid && price.touched">
+                Please enter a valid price (minimum $1)
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="inStock">Stock Quantity</label>
+            <input type="number" id="inStock" name="inStock" [(ngModel)]="product.inStock" #stock="ngModel" required
+                min="1">
+            <span class="error-message" *ngIf="stock.invalid && stock.touched">
+                Please enter a valid stock quantity (minimum 1)
+            </span>
+        </div>
+
+        <div class="form-group">
+            <label for="imgUrl">Image URL</label>
+            <input type="text" id="imgUrl" name="imgUrl" [(ngModel)]="product.imgUrl" #imgUrl="ngModel" required>
+            <span class="error-message" *ngIf="imgUrl.invalid && imgUrl.touched">
+                Image URL is required
+            </span>
+        </div>
+
+        <button type="submit" class="submit-button" [disabled]="!productForm.form.valid">
+            Create Product
+        </button>
+    </form>
+</div>

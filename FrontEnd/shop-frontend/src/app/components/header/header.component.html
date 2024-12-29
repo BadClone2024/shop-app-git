@@ -1,0 +1,111 @@
+<header class="header" *ngIf="role !== 'Admin'">
+  <p>Shop App</p>
+  <div class="search-container">
+      <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          (input)="onSearch()"
+          placeholder="Search products..."
+          class="search-input"
+      />
+  </div>
+  <nav class="nav-links">
+      <!-- Cart Icon (shown on home page) -->
+      <div 
+          *ngIf="currentUrl === '/home'" 
+          class="cart-icon" 
+          routerLink="/cart"
+          role="button"
+          aria-label="Go to cart"
+      >
+          <i class="fas fa-shopping-cart"></i>
+          <span 
+              class="cart-count" 
+              *ngIf="cartItemsCount > 0"
+              aria-label="Cart items count"
+          >
+              {{ cartItemsCount }}
+          </span>
+      </div>
+
+      <!-- Home Icon (shown on cart page) -->
+      <div 
+          *ngIf="currentUrl === '/cart'" 
+          class="home-icon" 
+          routerLink="/home"
+          role="button"
+          aria-label="Go to home"
+      >
+          <i class="fas fa-home"></i>
+      </div>
+
+      <!-- Debug information (remove in production) -->
+      <small class="debug-info" style="display: none;">
+          Current URL: {{ currentUrl }}
+      </small>
+  </nav>
+</header>
+
+<div *ngIf="role === 'Admin'">
+    <header class="header">
+        <p>Shop App</p>
+        <div class="search-container">
+            <input
+                type="text"
+                [(ngModel)]="searchTerm"
+                (input)="onSearch()"
+                placeholder="Search products..."
+                class="search-input"
+            />
+        </div>
+        <nav class="nav-links">
+            <!-- Cart Icon (shown on home page) -->
+            <div 
+                *ngIf="currentUrl === '/home'" 
+                class="cart-icon" 
+                routerLink="/connectedusers"
+                role="button"
+                aria-label="Go to cart"
+            >
+                <i class="fas fa-user"></i>
+            </div>
+
+            <div 
+                *ngIf="currentUrl === '/home'" 
+                class="cart-icon" 
+                routerLink="/createproduct"
+                role="button"
+                aria-label="Go to cart"
+            >
+                <i class="fas fa-plus"></i>
+                <span 
+                    class="cart-count" 
+                    *ngIf="cartItemsCount > 0"
+                    aria-label="Cart items count"
+                >
+                    {{ cartItemsCount }}
+                </span>
+            </div>
+      
+            <!-- Home Icon (shown on cart page) -->
+            <div 
+                *ngIf="currentUrl === '/createproduct'" 
+                class="home-icon" 
+                routerLink="/home"
+                role="button"
+                aria-label="Go to home"
+            >
+                <i class="fas fa-home"></i>
+            </div>
+      
+            <!-- Debug information (remove in production) -->
+            <small class="debug-info" style="display: none;">
+                Current URL: {{ currentUrl }}
+            </small>
+        </nav>
+      <h1>Admin</h1>
+
+      </header>
+
+  
+</div>
