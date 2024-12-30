@@ -19,10 +19,18 @@ export class AuthGuard implements CanActivate {
       return false;
     }
 
-    if (route.routeConfig?.path === 'createproduct') {
+    if (route.routeConfig?.path === 'createproduct' || route.routeConfig?.path === 'connectedusers') {
       const userInfo = this.userService.getUserInfo();
       if (userInfo.role !== "Admin") {
         console.log("Not an admin, redirecting to home");
+        this.router.navigate(['/home']);
+        return false;
+      }
+    }
+    if (route.routeConfig?.path === 'cart') {
+      const userInfo = this.userService.getUserInfo();
+      if (userInfo.role === "Admin") {
+        console.log("Admin doesnt have cart");
         this.router.navigate(['/home']);
         return false;
       }

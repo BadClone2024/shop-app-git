@@ -18,12 +18,20 @@ public class UserController : ControllerBase
     private readonly ApplicationDbContext _context;
     private readonly IConfiguration _configuration;
     private readonly ILogger<UserController> _logger;
+    private readonly TokenBlacklistService _blacklistService;
 
-    public UserController(ApplicationDbContext context, IConfiguration configuration, ILogger<UserController> logger)
+
+    public UserController(
+        ApplicationDbContext context,
+        IConfiguration configuration,
+        ILogger<UserController> logger,
+        TokenBlacklistService blacklistService
+        )
     {
         _context = context;
         _configuration = configuration;
         _logger = logger;
+        _blacklistService = blacklistService;
     }
 
     // create
@@ -52,8 +60,10 @@ public class UserController : ControllerBase
 
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
+        var token = GenerateJwtToken(user);
 
-        return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+        return Ok(new { token, user });
+
     }
 
     // get
@@ -176,5 +186,29 @@ public class UserController : ControllerBase
         };
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return tokenHandler.WriteToken(token);
+    }
+    private static readonly HashSet<string> _tokenBlacklist = new();
+
+    [HttpPost("logout")]
+    public IActionResult Logout()
+    {
+        try
+        {
+            var token = HttpContext.Request.Headers["Authorization"]
+                .ToString().Replace("Bearer ", "");
+
+            if (!string.IsNullOrEmpty(token))
+            {
+                _blacklistService.BlacklistToken(token);
+                return Ok(new { message = "Logged out successfully" });
+            }
+
+            return BadRequest(new { message = "No token provided" });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Error during logout: {ex.Message}");
+            return StatusCode(500, new { message = "Error processing logout" });
+        }
     }
 }

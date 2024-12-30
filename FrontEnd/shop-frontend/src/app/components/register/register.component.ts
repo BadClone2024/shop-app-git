@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -23,17 +24,20 @@ export class RegisterComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private userService: UserService,
   ) { }
 
   onSubmit() {
     this.authService.register(this.user).subscribe({
-      next: () => {
-        this.router.navigate(['/login']);
+      next: (response) => {
+        console.log('Register response:', response);
+        localStorage.setItem('token', response.token);
+        this.userService.updateUserTerm(response.user); // Let UserService handle localStorage
+        this.router.navigate(['/home']);
       },
       error: (error) => {
-        console.error('Registration failed:', error);
-        // Handle error (show message to user)
+        console.error('Register failed:', error);
       }
     });
   }

@@ -5,6 +5,9 @@ import { RouterLink, Router, NavigationEnd } from '@angular/router';
 import { SearchService } from '../../services/search.service';
 import { CartService } from '../../services/cart.service';
 import { filter, Subject, takeUntil } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
+import { TokenService } from '../../services/token.service';
+import { SignalRService } from '../../services/signalr.service';
 
 @Component({
   selector: 'app-header',
@@ -23,12 +26,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(
     private searchService: SearchService,
     private cartService: CartService,
-    public router: Router
+    public router: Router,
+    private authService: AuthService,
+    private tokenService: TokenService,
+    private signalRservice: SignalRService,
   ) { }
 
   ngOnInit(): void {
     this.currentUrl = this.router.url;
     console.log('Initial URL:', this.currentUrl);
+    
+    if (this.tokenService.getToken()) {
+      this.signalRservice.startConnection();
+    }
 
     this.cartService.cartItems$
       .pipe(takeUntil(this.destroy$))
@@ -55,4 +65,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onSearch(): void {
     this.searchService.updateSearchTerm(this.searchTerm.trim());
   }
+  logOut() {
+    this.authService.logOut().subscribe({
+      next: () => {
+        console.log("User logged out");
+        this.router.navigate(['/login']);
+      },
+      error: (err) => {
+        console.log("Error accured", err);
+      }
+    })
+  }
+  deleteUser() {
+    this.authService.delete().subscribe({
+      next: () => {
+        console.log("User was deleted");
+        this.router.navigate(['/register']);
+      },
+      error: (err) => {
+        console.log("Error accured", err);
+      }
+    })
+  }
+
 }

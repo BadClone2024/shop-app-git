@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit {
     console.log("userService", this.userInfo.role);
 
     this.searchService.searchTerm$.subscribe((term: string) => {
-      this.filter = this.searchService.filterArray(term, this.products);
+      this.filter = this.searchService.filterProducts(term, this.products);
     });
 
     this.productService.get().subscribe({

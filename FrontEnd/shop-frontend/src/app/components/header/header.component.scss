@@ -4,7 +4,7 @@
   align-items: center;
   padding: 1rem 2rem;
   background-color: #ffffff;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -45,7 +45,68 @@
     align-items: center;
   }
 
-  .cart-icon,
+  .icons {
+    display: flex; // This makes icons appear in a row
+    gap: 20px; // Adds space between icons
+    align-items: center;
+  }
+
+  .cart-icon {
+    position: relative; // Add this to make absolute positioning work
+    cursor: pointer;
+    transition: color 0.2s ease;
+    font-size: 1.2rem;
+    padding: 8px;
+
+    // Specific colors for each icon
+    .fa-shopping-cart {
+      color: #4CAF50;
+
+      &:hover {
+        color: #45a049;
+      }
+    }
+  }
+
+    .fa-sign-out-alt {
+      color: #2196F3; // Blue for logout
+
+      &:hover {
+        color: #1976D2;
+      }
+    }
+
+    .fa-user-times {
+      color: #f44336; // Red for delete
+
+      &:hover {
+        color: #d32f2f;
+      }
+    }
+
+    .fa-home {
+      color: #FF9800; // Orange for home
+
+      &:hover {
+        color: #F57C00;
+      }
+    }
+  }
+
+  // Style for the cart count badge
+  .cart-count {
+    position: absolute;
+    top: -5px; // Adjust these values to position the badge
+    right: -5px; // correctly relative to the icon
+    background-color: #f44336;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    min-width: 18px; // Add this to ensure consistent width
+    text-align: center; // Add this to center the number
+  }
+
   .home-icon {
     position: relative;
     cursor: pointer;
@@ -74,4 +135,3 @@
       text-align: center;
     }
   }
-}

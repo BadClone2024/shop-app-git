@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "i70Zeb3BZ7w=",
+  "dgSpecHash": "vhMsifdDUjQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\BackEnd\\ShopApi\\ShopApi.csproj",
+  "projectFilePath": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\ShopApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moshe\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\moshe\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

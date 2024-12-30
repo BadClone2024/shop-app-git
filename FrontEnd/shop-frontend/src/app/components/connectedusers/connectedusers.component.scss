@@ -1,0 +1,45 @@
+.users-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+
+  .online-users, .offline-users {
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    h3 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  }
+
+  .online-users {
+    background-color: #e8f5e9;
+  }
+
+  .offline-users {
+    background-color: #ffebee;
+  }
+
+  .users-list {
+    .user-item {
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+
+      &.online {
+        background-color: #c8e6c9;
+      }
+
+      &.offline {
+        background-color: #ffcdd2;
+      }
+
+      .current-user {
+        font-weight: bold;
+      }
+    }
+  }
+}

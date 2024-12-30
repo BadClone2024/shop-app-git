@@ -4,8 +4,9 @@
     "\\Controllers",
     "\\Data",
     "\\DTOs",
-    "\\Models"
+    "\\Hub",
+    "\\Models",
+    "\\Services"
   ],
-  "SelectedNode": "\\Controllers\\UserController.cs",
   "PreviewInSolutionExplorer": false
 }

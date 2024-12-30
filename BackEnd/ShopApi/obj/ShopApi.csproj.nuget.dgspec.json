@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\BackEnd\\ShopApi\\ShopApi.csproj": {}
+    "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\ShopApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\BackEnd\\ShopApi\\ShopApi.csproj": {
+    "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\ShopApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\BackEnd\\ShopApi\\ShopApi.csproj",
+        "projectUniqueName": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\ShopApi.csproj",
         "projectName": "ShopApi",
-        "projectPath": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\BackEnd\\ShopApi\\ShopApi.csproj",
+        "projectPath": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\ShopApi.csproj",
         "packagesPath": "C:\\Users\\moshe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\BackEnd\\ShopApi\\obj\\",
+        "outputPath": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

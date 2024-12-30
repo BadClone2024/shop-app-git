@@ -20,6 +20,33 @@ builder.Services.AddAuthentication(x =>
 {
     x.Events = new JwtBearerEvents
     {
+        OnMessageReceived = context =>
+        {
+            var accessToken = context.Request.Query["access_token"];
+            Console.WriteLine($"\nReceived access token1: {accessToken}");
+
+            var path = context.HttpContext.Request.Path;
+            if (!string.IsNullOrEmpty(accessToken) && path.StartsWithSegments("/userHub"))
+            {
+                context.Token = accessToken;
+            }
+            return Task.CompletedTask;
+        },
+        OnTokenValidated = context =>
+        {
+            var blacklistService = context.HttpContext.RequestServices
+                .GetRequiredService<TokenBlacklistService>();
+
+            var token = context.Request.Headers["Authorization"]
+                .ToString().Replace("Bearer ", "");
+
+            if (blacklistService.IsTokenBlacklisted(token))
+            {
+                context.Fail("Token has been revoked");
+            }
+
+            return Task.CompletedTask;
+        },
         OnForbidden = context =>
         {
             Console.WriteLine("Forbidden");
@@ -50,6 +77,9 @@ builder.Services.AddAuthentication(x =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddSignalR();
+builder.Services.AddSingleton<TokenBlacklistService>();
+
 
 // Add DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -84,10 +114,14 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAngular");
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapHub<UserHub>("/userHub");
+
+
 
 app.Run();

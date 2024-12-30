@@ -12,7 +12,7 @@ export class SearchService {
     this.searchTermSubject.next(term);
   }
 
-  filterArray(term: string, array: any[]) :any[] {
+  filterProducts(term: string, array: any[]): any[] {
     if (!term) {
       return array;
     }
@@ -24,5 +24,27 @@ export class SearchService {
       product.price.toString().includes(term)
     );
     return array;
+  }
+  filterUsers(term: string, array: any[]): any[] {
+    if (!term) {
+      return array;
+    }
+
+    term = term.toLowerCase();
+
+    array = array.filter(user =>
+      user.username.toLowerCase().includes(term) ||
+      user.id.toString().includes(term) ||
+      user.email.toLowerCase().includes(term) ||
+      user.role.toLowerCase().includes(term)
+    );
+    return array;
+  }
+
+  findById(id: number, array: any[]): any[] {
+    console.log("Find by ID starts");
+    if (!id) return array;
+    console.log("ID is not empty");
+    return array.filter(userid => userid === id.toString());
   }
 }

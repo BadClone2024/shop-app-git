@@ -1,1 +1,23 @@
-<p>connectedusers works!</p>
+<app-header></app-header>
+
+<div class="users-container">
+  <div class="online-users">
+    <h3>Connected Users</h3>
+    <div class="users-list">
+      <div *ngFor="let user of filteredConnectedUsers" class="user-item online">
+        <span [class.current-user]="user.id.toString() === currentUser.id">
+          {{user.username}} {{user.id.toString() === currentUser.id ? '(You)' : ''}}
+        </span>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="offline-users">
+    <h3>Disconnected Users</h3>
+    <div class="users-list">
+      <div *ngFor="let user of filteredOfflineUsers" class="user-item offline">
+        <span>{{user.username}}</span>
+      </div>
+    </div>
+  </div>
+ </div>
