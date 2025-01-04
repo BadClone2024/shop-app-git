@@ -48,10 +48,7 @@ export class CartService {
     );
   }
   bought() {
-    // Clear the cart from local storage
     localStorage.removeItem('cart');
-    
-    // Update the cart observable to an empty array (or suitable default)
     this.cartItems.next([]);
   }
   

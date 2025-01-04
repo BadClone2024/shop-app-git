@@ -1,67 +1,82 @@
-<header class="header" *ngIf="role !== 'Admin'">
-    <p>Shop App</p>
-    <div class="search-container">
-        <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search products..."
-            class="search-input" />
-    </div>
-    <nav class="nav-links">
-        <!-- Cart Icon (shown on home page) -->
-        <div *ngIf="currentUrl === '/home'" class="cart-icon" routerLink="/cart" role="button" aria-label="Go to cart">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count" *ngIf="cartItemsCount > 0" aria-label="Cart items count">
-                {{ cartItemsCount }}
-            </span>
-        </div>
-        <div class="icons">
-            <div class="cart-icon" role="button" aria-label="Logout" (click)="logOut()">
-                <i class="fas fa-sign-out-alt"></i>
-            </div>
-            <div class="cart-icon" role="button" aria-label="Logout" (click)="deleteUser()">
-                <i class="fas fa-user-times"></i>
-            </div>
-            <!-- Home Icon (shown on cart page) -->
-            <div *ngIf="currentUrl !== '/home'" class="home-icon" routerLink="/home" role="button" aria-label="Go to home">
-                <i class="fas fa-home"></i>
-            </div>
-        </div>
-    </nav>
-</header>
-
-<div *ngIf="role === 'Admin'">
-    <header class="header">
+<div *ngIf="currentUrl != '/login' && currentUrl != '/register'">
+    <header class="header" *ngIf="role !== 'Admin'">
         <p>Shop App</p>
         <div class="search-container">
             <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="Search products..."
                 class="search-input" />
         </div>
         <nav class="nav-links">
-            <div *ngIf="currentUrl === '/home'" class="cart-icon" routerLink="/connectedusers" role="button"
-                aria-label="Go to cart">
-                <i class="fas fa-user"></i>
+            <div *ngIf="currentUrl !== '/home'">
+                <div class="home-icon" routerLink="/home" role="button" aria-label="Go to home">
+                    <i class="fas fa-home"></i>
+                </div>
+                <label>Home</label>
             </div>
 
-            <div *ngIf="currentUrl === '/home'" class="cart-icon" routerLink="/createproduct" role="button"
-                aria-label="Go to cart">
-                <i class="fas fa-plus"></i>
+            <div *ngIf="currentUrl === '/home'">
+                <div class="cart-icon" routerLink="/cart" role="button" aria-label="Go to cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" *ngIf="cartItemsCount > 0" aria-label="Cart items count">
+                        {{ cartItemsCount }}
+                    </span>
+                </div>
+                <label>Cart</label>
             </div>
 
-            <!-- Home Icon (shown on cart page) -->
-            <div *ngIf="currentUrl !== '/home'" class="home-icon" routerLink="/home" role="button"
-                aria-label="Go to home">
-                <i class="fas fa-home"></i>
+            <div>
+                <div class="cart-icon" role="button" aria-label="Logout" (click)="logOut()">
+                    <i class="fas fa-sign-out-alt"></i>
+                </div>
+                <label>Log out</label>
             </div>
 
-            <!-- Debug information (remove in production) -->
-            <small class="debug-info" style="display: none;">
-                Current URL: {{ currentUrl }}
-            </small>
-            <div class="cart-icon" role="button" aria-label="Logout" (click)="logOut()">
-                <i class="fas fa-sign-out-alt"></i>
+            <div>
+                <div class="cart-icon" role="button" aria-label="Delete account" (click)="deleteUser()">
+                    <i class="fas fa-user-times"></i>
+                </div>
+                <label>Delete Account</label>
             </div>
         </nav>
-        <h1>Admin</h1>
-
     </header>
+    
+    <div *ngIf="role === 'Admin'">
+        <header class="header">
+            <p>Shop App</p>
+            <div class="search-container" *ngIf="currentUrl != '/createproduct'">
+                <input type="text" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder={{placeHolder}}
+                    class="search-input" />
+            </div>
 
+            <nav class="nav-links">
+                <div *ngIf="currentUrl !== '/home'">
+                    <div class="home-icon" routerLink="/home" role="button" aria-label="Go to home">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <label>Home</label>
+                </div>
 
+                <div *ngIf="currentUrl !== '/connectedusers'">
+                    <div class="cart-icon" routerLink="/connectedusers" role="button" aria-label="Go to connected users">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <label>Connected users</label>
+                </div>
+
+                <div *ngIf="currentUrl !== '/createproduct'">
+                    <div class="cart-icon" routerLink="/createproduct" role="button" aria-label="Create product">
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <label>Create product</label>
+                </div>
+
+                <div>
+                    <div class="cart-icon" role="button" aria-label="Logout" (click)="logOut()">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </div>
+                    <label>Log out</label>
+                </div>
+            </nav>
+            <h1>Admin</h1>
+        </header>
+    </div>
 </div>

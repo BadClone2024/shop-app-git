@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Hub\\UserHub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Hub\\UserHub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\ProductController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\ProductController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Controllers\\UserController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Queries\\UserQueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Queries\\UserQueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Queries\\ProductQueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Queries\\ProductQueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +30,72 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "ProductQueries.cs",
+              "DocumentMoniker": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Queries\\ProductQueries.cs",
+              "RelativeDocumentMoniker": "Queries\\ProductQueries.cs",
+              "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Queries\\ProductQueries.cs",
+              "RelativeToolTip": "Queries\\ProductQueries.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T17:52:53.205Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserHub.cs",
-              "DocumentMoniker": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Hub\\UserHub.cs",
-              "RelativeDocumentMoniker": "Hub\\UserHub.cs",
-              "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Hub\\UserHub.cs",
-              "RelativeToolTip": "Hub\\UserHub.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T08:04:04.172Z",
+              "WhenOpened": "2025-01-04T21:03:11.32Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAD8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T20:58:20.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACwAAAAAAAAAAAAAAHUAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-26T08:39:31.038Z"
+              "WhenOpened": "2025-01-04T19:46:22.105Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserQueries.cs",
+              "DocumentMoniker": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Queries\\UserQueries.cs",
+              "RelativeDocumentMoniker": "Queries\\UserQueries.cs",
+              "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Queries\\UserQueries.cs",
+              "RelativeToolTip": "Queries\\UserQueries.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAAG0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-04T19:45:22.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAAHAAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-30T17:52:53.205Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   searchTerm: string = '';
   cartItemsCount: number = 0;
   currentUrl: string = '';
+  placeHolder: string = "";
   @Input() role: any;
   private destroy$ = new Subject<void>();
 
@@ -35,10 +36,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.currentUrl = this.router.url;
     console.log('Initial URL:', this.currentUrl);
-    
-    if (this.tokenService.getToken()) {
-      this.signalRservice.startConnection();
-    }
 
     this.cartService.cartItems$
       .pipe(takeUntil(this.destroy$))
@@ -53,6 +50,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
       )
       .subscribe(() => {
         this.currentUrl = this.router.url;
+        this.setPlaceHolder();
+        console.log("place holder:", this.placeHolder);
         console.log('Current URL:', this.currentUrl);
       });
   }
@@ -86,6 +85,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
         console.log("Error accured", err);
       }
     })
+  }
+  setPlaceHolder() {
+    if (this.currentUrl == '/home') {
+      this.placeHolder = 'Search product';
+    }
+    if (this.currentUrl == '/connectedusers')
+      this.placeHolder = 'Search users';
   }
 
 }

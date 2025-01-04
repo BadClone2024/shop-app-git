@@ -11,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 var key = Encoding.ASCII.GetBytes(builder.Configuration["JWT:Secret"] ??
     throw new InvalidOperationException("JWT Secret not found in configuration"));
 
+builder.Services.AddScoped<UserQueries>();
+builder.Services.AddScoped<ProductQueries>();
 builder.Services.AddAuthentication(x =>
 {
     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -102,6 +104,12 @@ builder.Services.AddCors(options =>
 
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    context.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

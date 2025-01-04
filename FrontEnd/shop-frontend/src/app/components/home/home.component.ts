@@ -11,7 +11,7 @@ import { UserService } from '../../services/user.service';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ProductCardComponent, HeaderComponent, HeaderComponent],
+  imports: [CommonModule, ProductCardComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

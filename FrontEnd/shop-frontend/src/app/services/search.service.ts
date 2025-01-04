@@ -25,6 +25,7 @@ export class SearchService {
     );
     return array;
   }
+
   filterUsers(term: string, array: any[]): any[] {
     if (!term) {
       return array;

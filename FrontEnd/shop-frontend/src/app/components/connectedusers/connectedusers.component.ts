@@ -4,13 +4,12 @@ import { UserService } from '../../services/user.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HeaderComponent } from "../header/header.component";
 import { SearchService } from '../../services/search.service';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-connectedusers',
-  imports: [CommonModule, FormsModule, HeaderComponent],
+  imports: [CommonModule, FormsModule],
   templateUrl: './connectedusers.component.html',
   styleUrl: './connectedusers.component.scss'
 })

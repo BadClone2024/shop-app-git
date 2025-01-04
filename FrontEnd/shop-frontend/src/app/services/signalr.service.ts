@@ -10,7 +10,9 @@ import { BehaviorSubject } from 'rxjs';
 export class SignalRService {
   private hubConnection: signalR.HubConnection;
   private onlineUsers = new BehaviorSubject<string[]>([]);
+  private connectionStateSubject = new BehaviorSubject<boolean>(false);
   onlineUsers$ = this.onlineUsers.asObservable();
+  connectionState$ = this.connectionStateSubject.asObservable();
 
   constructor(private tokenService: TokenService) {
     this.hubConnection = new signalR.HubConnectionBuilder()
@@ -47,6 +49,7 @@ export class SignalRService {
     try {
       await this.hubConnection.start();
       console.log('SignalR Connected!');
+      this.connectionStateSubject.next(true);
       this.refreshOnlineUsers();
     } catch (err) {
       console.error('Error while connecting:', err);
@@ -68,6 +71,7 @@ export class SignalRService {
     try {
       await this.hubConnection.stop();
       console.log('SignalR Disconnected');
+      this.connectionStateSubject.next(false);
     } catch (err) {
       console.error('Error while disconnecting:', err);
     }

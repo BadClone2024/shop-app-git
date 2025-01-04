@@ -7,33 +7,28 @@ using Microsoft.EntityFrameworkCore;
 [Route("api/[controller]")]
 public class ProductController : ControllerBase
 {
-    private readonly ApplicationDbContext _context;
-    public ProductController(ApplicationDbContext context)
-    {
-        _context = context;
-    }
+    private readonly ProductQueries _productQueries;
 
-    //create
+    public ProductController(ProductQueries productQueries)
+    {
+        _productQueries = productQueries;
+    }
 
     [HttpPost]
     public async Task<ActionResult<Product>> CreateProduct(Product product)
     {
-        if (await _context.Products.AnyAsync(p => p.Name == product.Name))
+        if (await _productQueries.ProductExistsAsync(product.Name))
             return BadRequest("Product already exists");
 
-        await _context.Products.AddAsync(product);
-        await _context.SaveChangesAsync();
-
-        return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+        var createdProduct = await _productQueries.CreateProductAsync(product);
+        return CreatedAtAction(nameof(GetProduct), new { id = createdProduct.Id }, createdProduct);
     }
-
-    //get
 
     [AllowAnonymous]
     [HttpGet("{id}")]
     public async Task<ActionResult<Product>> GetProduct(int id)
     {
-        var product = await _context.Products.FindAsync(id);
+        var product = await _productQueries.GetProductByIdAsync(id);
         if (product == null) return NotFound();
         return product;
     }
@@ -42,54 +37,28 @@ public class ProductController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
     {
-        return await _context.Products.ToListAsync();
+        return await _productQueries.GetAllProductsAsync();
     }
-
-    //update
 
     [HttpPut("{id}")]
     public async Task<ActionResult<Product>> UpdateProduct(int id, Product bodyInfo)
     {
-        var initialProduct = await _context.Products.FindAsync(id);
-        if (initialProduct == null) return NotFound();
-        if(bodyInfo.Name == null)
+        var updatedProduct = await _productQueries.UpdateProductAsync(id, bodyInfo);
+        if (updatedProduct == null)
         {
-            return BadRequest("The name has to have to be not nullable");
-        }
-        if (bodyInfo.ImgUrl== null)
-        {
-            return BadRequest("The imgUrl has to be a real URL");
-        }
-        if (bodyInfo.Price < 1)
-        {
-            return BadRequest("Price has to be higher than 0");
-        }
-        if (bodyInfo.InStock == 0)
-        {
-            return BadRequest("The stock has to be higher than 0");
-        }
+            if (await _productQueries.GetProductByIdAsync(id) == null)
+                return NotFound();
 
-        initialProduct.Name = bodyInfo.Name;
-        initialProduct.Price = bodyInfo.Price;
-        initialProduct.InStock = bodyInfo.InStock;
-        initialProduct.ImgUrl = bodyInfo.ImgUrl;
-
-
-        await _context.SaveChangesAsync();
-        return Ok(initialProduct);
+            return BadRequest("Invalid product data. Check name, imgUrl, price, and stock.");
+        }
+        return Ok(updatedProduct);
     }
 
-    //delete
     [HttpDelete("{id}")]
     public async Task<ActionResult<Product>> DeleteProduct(int id)
     {
-        var product = await _context.Products.FindAsync(id);
-        if (product == null) return NotFound();
-
-        _context.Products.Remove(product);
-        await _context.SaveChangesAsync();
-
+        var success = await _productQueries.DeleteProductAsync(id);
+        if (!success) return NotFound();
         return NoContent();
-
     }
 }

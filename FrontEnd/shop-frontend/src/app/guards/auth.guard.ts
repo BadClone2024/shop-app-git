@@ -20,7 +20,10 @@ export class AuthGuard implements CanActivate {
     }
 
     if (route.routeConfig?.path === 'createproduct' || route.routeConfig?.path === 'connectedusers') {
+      console.log("authGuard: ", route.routeConfig?.path);
       const userInfo = this.userService.getUserInfo();
+      console.log("authGuard user role: ", userInfo.role);
+
       if (userInfo.role !== "Admin") {
         console.log("Not an admin, redirecting to home");
         this.router.navigate(['/home']);

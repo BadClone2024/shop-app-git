@@ -6,7 +6,10 @@
     "\\DTOs",
     "\\Hub",
     "\\Models",
+    "\\Properties",
+    "\\Queries",
     "\\Services"
   ],
+  "SelectedNode": "\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
