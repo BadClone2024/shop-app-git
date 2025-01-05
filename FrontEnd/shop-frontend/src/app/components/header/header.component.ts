@@ -8,11 +8,12 @@ import { filter, Subject, takeUntil } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { TokenService } from '../../services/token.service';
 import { SignalRService } from '../../services/signalr.service';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, ConfirmationDialogComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -21,6 +22,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   cartItemsCount: number = 0;
   currentUrl: string = '';
   placeHolder: string = "";
+  request: string = "";
+  title: string = "";
+  message: string = "";
+  showConfirmationDialogue: boolean = false;
   @Input() role: any;
   private destroy$ = new Subject<void>();
 
@@ -64,7 +69,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   onSearch(): void {
     this.searchService.updateSearchTerm(this.searchTerm.trim());
   }
-  logOut() {
+  onConfirmLogOut() {
     this.authService.logOut().subscribe({
       next: () => {
         console.log("User logged out");
@@ -75,10 +80,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     })
   }
-  deleteUser() {
+  onConfirmDelete() {
     this.authService.delete().subscribe({
       next: () => {
-        console.log("User was deleted");
+        console.log("User was deleted successfuly");
         this.router.navigate(['/register']);
       },
       error: (err) => {
@@ -86,6 +91,33 @@ export class HeaderComponent implements OnInit, OnDestroy {
       }
     })
   }
+  openDeleteDialogue() {
+    this.showConfirmationDialogue = true;
+    this.title = "Delete account";
+    this.message = "Are you sure you want to delete your user?"
+    this.request = "delete";
+  }
+  openLogoutDialogue() {
+    this.showConfirmationDialogue = true;
+    this.title = "Log-out";
+    this.message = "Are you sure you want to log-out?"
+    this.request = "logout";
+  }
+
+  onCancelDialogue() {
+    this.showConfirmationDialogue = false;
+  }
+
+  dialogue() {
+    if (this.request === "delete") {
+      this.onConfirmDelete();
+    } else {
+      this.onConfirmLogOut();
+    }
+
+    this.showConfirmationDialogue = false;
+  }
+
   setPlaceHolder() {
     if (this.currentUrl == '/home') {
       this.placeHolder = 'Search product';

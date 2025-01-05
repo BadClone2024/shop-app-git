@@ -1,0 +1,12 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-content">
+    <h2>{{ title }}</h2>
+    <p>{{ message }}</p>
+    <div class="modal-actions">
+      <button class="cancel-btn" (click)="onCancel()">Cancel</button>
+      <button 
+        [ngClass]="{'confirm-btn-delete': request === 'delete', 'confirm-btn-logout': request === 'logout'}" 
+        (click)="onConfirm()">Confirm</button>
+    </div>
+  </div>
+</div>

@@ -42,8 +42,7 @@
               "RelativeToolTip": "Queries\\ProductQueries.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T21:03:11.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-04T21:03:11.32Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Controllers\\ProductController.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAD8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T20:58:20.733Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-04T20:58:20.733Z"
             },
             {
               "$type": "Document",
@@ -66,7 +64,7 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\moshe\\OneDrive\\Documents\\StoreManagement\\shop-app-git\\BackEnd\\ShopApi\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAAHUAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAAAHUAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-04T19:46:22.105Z",
               "EditorCaption": ""
@@ -81,8 +79,7 @@
               "RelativeToolTip": "Queries\\UserQueries.cs",
               "ViewState": "AgIAABsAAAAAAAAAAAAAAG0AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-04T19:45:22.638Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-04T19:45:22.638Z"
             },
             {
               "$type": "Document",
@@ -94,8 +91,7 @@
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AgIAAAcAAAAAAAAAAAAAAHAAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T17:52:53.205Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-30T17:52:53.205Z"
             }
           ]
         }

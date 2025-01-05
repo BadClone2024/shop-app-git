@@ -24,18 +24,27 @@
             </div>
 
             <div>
-                <div class="cart-icon" role="button" aria-label="Logout" (click)="logOut()">
+                <div class="cart-icon" role="button" aria-label="Logout" (click)="openLogoutDialogue()">
                     <i class="fas fa-sign-out-alt"></i>
                 </div>
                 <label>Log out</label>
             </div>
 
             <div>
-                <div class="cart-icon" role="button" aria-label="Delete account" (click)="deleteUser()">
+                <div class="cart-icon" role="button" aria-label="Delete account" (click)="openDeleteDialogue()">
                     <i class="fas fa-user-times"></i>
                 </div>
                 <label>Delete Account</label>
             </div>
+            
+            <app-confirmation-dialog
+                [isOpen]="showConfirmationDialogue"
+                [request]="this.request"
+                title="{{this.title}}"
+                message="{{this.message}}"
+                (confirm)="dialogue()"
+                (cancel)="onCancelDialogue()">
+            </app-confirmation-dialog>
         </nav>
     </header>
     
@@ -70,7 +79,7 @@
                 </div>
 
                 <div>
-                    <div class="cart-icon" role="button" aria-label="Logout" (click)="logOut()">
+                    <div class="cart-icon" role="button" aria-label="Logout" (click)="onConfirmLogOut()">
                         <i class="fas fa-sign-out-alt"></i>
                     </div>
                     <label>Log out</label>
